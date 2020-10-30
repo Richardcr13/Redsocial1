@@ -23,7 +23,6 @@
 		margin: 0 0 14px 0;
 		padding: 14px 15px 10px 500px;
 		font: 18px/20px normal Helvetica, Arial, sans-serif;
-		
 	}
 
 
