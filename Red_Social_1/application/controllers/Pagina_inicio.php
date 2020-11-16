@@ -12,8 +12,8 @@ class Pagina_inicio extends CI_Controller
 
     }
 
-    public function perfil()
-    {
-
+    public function var_busq(){
+        $this->load->model('usuario_model');
+        $this->load->var_busq();
     }
 }

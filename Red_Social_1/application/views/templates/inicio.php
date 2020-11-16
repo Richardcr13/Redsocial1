@@ -1,7 +1,8 @@
 
 
+
 <header>
-<input type="search" id="input-search" placeholder="Buscar aquí">
+<input type="search" id="input-search" placeholder="Buscar aquí..">
 
 <div class="content-search">
 
@@ -16,7 +17,9 @@
 			<tbody>
 				<tr>
 					<td>
-						<a href="#"><?php echo "string"; ?>
+						<a href="#"><?php 
+						echo 'hola';
+						?>
 						</a>
 					</td>
 				</tr>
@@ -26,3 +29,10 @@
 
 </div>
 </header> 
+
+
+<div class="h">
+	<a href="">
+		<img src="../images/nav-bar/k.jpg" alt="Truli" width="60" height="40">
+	</a>
+</div>

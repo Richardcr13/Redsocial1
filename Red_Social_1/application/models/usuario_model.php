@@ -29,4 +29,12 @@ class Usuario_model extends CI_Model
         }
     }
 
+    public function buscar(){
+        $this->load->database();
+		$q = $this->db->get('usuarios');
+		foreach($q->result() as $row){
+        echo $row->usuario;
+       }
+     }
+
 }
