@@ -11,6 +11,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="../CSS/inicio.css">
 	<link rel="stylesheet" type="text/css" href="../CSS/nav_bar.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/menu_perfil.css">
 	<script src="../js/jquery.js"></script>
 	<script src="../js/jquery.dataTables.min.js"></script>
 

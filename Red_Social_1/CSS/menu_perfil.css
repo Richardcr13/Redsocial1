@@ -1,0 +1,19 @@
+.home {
+    position: fixed;
+    top: 10px;
+    right: 500px;
+    width: 60px;
+  }
+  .mensaje {
+    position: fixed;
+    top: 10px;
+    right: 400px;
+    width: 60px;
+  }
+
+  .notificacion {
+    position: fixed;
+    top: 10px;
+    right: 300px;
+    width: 60px;
+  }

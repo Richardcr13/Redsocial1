@@ -36,3 +36,21 @@
 		<img src="../images/nav-bar/k.jpg" alt="Truli" width="60" height="40">
 	</a>
 </div>
+
+<div class="home">
+	<a href="#">
+		<img src="../images/nav-bar/home.png" alt="Truli" width="60" height="40"> 
+	</a>
+</div>
+
+<div class="mensaje">
+	<a href="#">
+		<img src="../images/nav-bar/mensajes.png" alt="Truli" width="60" height="40"> 
+	</a>
+</div>
+
+<div class="notificacion">
+	<a href="#">
+		<img src="../images/nav-bar/notificacion.png" alt="Truli" width="60" height="40"> 
+	</a>
+</div>
