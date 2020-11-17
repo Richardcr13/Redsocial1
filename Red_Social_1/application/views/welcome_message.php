@@ -2,7 +2,7 @@
 
 
 <div>
-	<h1>Dragón amarillo y verde..</h1>
+	<h1>Dragón amarillo y verde</h1>
 
 	<div id="body">
 
