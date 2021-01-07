@@ -15,7 +15,7 @@ class Usuario_model extends CI_Model
 
     public function login($username, $password)
     {
-        $this->load->database();
+        //$this->load->database();
         $this->db->where('usuario', $username);
         $this->db->where('contrasena', $password);
         $q = $this->db->get('usuarios');
@@ -28,13 +28,5 @@ class Usuario_model extends CI_Model
             return false;
         }
     }
-
-    public function buscar(){
-        $this->load->database();
-		$q = $this->db->get('usuarios');
-		foreach($q->result() as $row){
-        echo $row->usuario;
-       }
-     }
 
 }

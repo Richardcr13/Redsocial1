@@ -12,8 +12,9 @@ class Pagina_inicio extends CI_Controller
 
     }
 
-    public function var_busq(){
-        $this->load->model('usuario_model');
-        $this->load->var_busq();
+    public function key()
+    {
+        echo md5("red_social");
     }
+
 }
