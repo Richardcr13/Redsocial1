@@ -1,36 +1,57 @@
-<div class="container mt-3">
-    <div class="row">
-        <!-- Columna perfil -->
-        <div class="col-md-3">
-            <div class="container-style-main">
-                <div class="perfil-usuario-main">
-                    <div class="background-usuario-main"></div>
-                    <img src="../images/perfil/camara.png" alt="">
-                    <div class="foto-separation"></div>
-                    <a href="Perfil" class="links">
-                        <div class="text-center nombre-perfil"></div>
-                    </a>
-                    <div class="tabla-estadisticas">
+<div class="perfil-container-usuario">
+    <div class="imagen-header-perfil-usuario">
+        <img src="../images/nav-bar/k.jpg" class="imagen-portada-perfil" alt="">
+</div>
 
+
+   <div class="container-header-usuario">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="datos-perfil-usuario">
+                        <img src="../images/nav-bar/k.jpg" class="imagen-perfil-usuario" alt="">
+
+                            <div class="imagen-perfil-cambiar">
+                                <form action="" method="POST" enctype="multipart/form-data">
+                                    <i class="fas fa-camera"></i>
+                                    <div class="input-file">
+                                        <input type="hidden" name="id_user" value="">
+                                        <input type="file" name="imagen" id="imagen" required>
+                                    </div>
+                                    </div>
+                                    <div class="editar-perfil">
+                                        <button class="btn-change-image">Editar</button>
+                                    </div>
+                                </form>
+
+
+                        <div class="datos-personales-usuario">
+                            <h3></h3>
+                            <div class="descripcion-usuario">
+                                <span></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!-- Columna principal -->
-        <div class="col-md-6">
-            <div class="container-style-main">
-                <div class="container-usuario-publicar">
-                    <a href="Perfil"><img src="../images/perfil/camara.png" class="image-border " alt=""></a>
 
-                    <form action="Pagina_inicio/publicar" method="POST" enctype="multipart/form-data" class="form-publicar ml-2" id="guardar">
 
-                        <textarea name="contenidoPublicacion"  class="published mb-0" name="post" placeholder="¿Qué estás pensando?" required></textarea>
+                <div class="col-md-6">
+                    <div class="container-principal-informacion-usuario">
+                        <div class="container-style-main">
 
-                            <button class="submit" class="btn-publi">Publicar...</button>
+                                <div class="container-usuario-publicar">
+                                    <a href="Perfil"><img src="../images/perfil/camara.png" class="image-border " alt=""></a>
+                                    <form action="Pagina_inicio/publicar" method="POST" class="form-publicar ml-2" id="guardar">
+                                        <textarea name="contenidoPublicacion" id="" class="published mb-0" placeholder="¿Qué estas pensando?" required></textarea>
 
-                    </form>
-                </div>
-                <?php foreach ($post as $posts) {?>
+
+                                            <button class="submit" class="btn-publi">Publicar...</button>
+
+
+                                    </form>
+                                </div>
+
+                                <?php foreach ($post as $posts) {?>
                     <div class="container-usuarios-publicaciones">
                         <div class="usuarios-publicaciones-top">
                             <img src=" ">
@@ -56,16 +77,17 @@
 
                         </div>
                         <hr>
+
                         <div class="formulario-comentarios">
                             <img src="" alt="" class="image-border mr-2">
                             <div class="acciones-formulario-comentario">
-                                <form action="Pagina_inicio/comentar" method="POST" id="guardar">
+                                <form action="Perfil/publicar" method="POST">
                                     <input type="hidden" name="iduserPropietario" value="">
                                     <input type="hidden" name="iduser" value="">
                                     <input type="hidden" name="idpublicacion" value="<?php echo $posts->idpublicacion ?>">
-                                    <input type="text" name="contenidoComentario" class="form-comentario-usuario" placeholder="Has un comentario" required>
+                                    <input type="text" name="contenidoPublicacion" class="form-comentario-usuario" placeholder="Has un comentario" required>
                                     <div class="btn-comentario-container">
-                                        <button type="submit" class="btn-purple">Comenta</button>
+                                        <button class="btn-purple">Comentar...</button>
                                     </div>
                                 </form>
                             </div>
@@ -94,13 +116,8 @@
 
                     </div>
                     <?php }?>
-            </div>
-        </div>
-        <!-- Columna eventos -->
-        <div class="col-md-3">
-            <div class="container-style-main">
 
-            </div>
-        </div>
-    </div>
-</div>
+
+                        </div>
+                    </div>
+                </div>

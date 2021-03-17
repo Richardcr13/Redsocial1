@@ -14,7 +14,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 	<link rel="stylesheet" type="text/css" href="../CSS/menu_perfil.css">
 	<link rel="stylesheet" type="text/css" href="../CSS/logout.css">
 	<link rel="stylesheet" type="text/css" href="../CSS/home.css">
+	<link rel="stylesheet" type="text/css" href="../CSS/perfil.css">
 
+    <script type="text/javascript" src="../js/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript" src="../js/materialize.min.js"></script>
+	<script type="text/javascript" src="../js/script.js"></script>
 	<script src="../js/jquery.js"></script>
 	<script src="../js/jquery.dataTables.min.js"></script>
 
@@ -39,9 +43,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 			<tbody>
 				<tr>
-					<td>
-						<a href="#">
-						</a>
+					<td><?php foreach ($usuarios as $usuario): ?>
+						<a href="Perfil"> <?php echo $usuario->usuario ?>
+						</a><?php endforeach?>
 					</td>
 				</tr>
 			</tbody>
@@ -53,8 +57,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
 <div class="h">
-	<a href="#">
-		<img src="../images/nav-bar/k.jpg"  width="60" height="40">
+	<a href="Perfil">
+		<img src="../images/nav-bar/k.jpg" width="60" height="40">
 	</a>
 </div>
 
@@ -77,8 +81,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </div>
 
 <div class="salir">
-	<?php if ($this->session->userdata('username')): ?>
-	<a class="restablece" href="<?=site_url('Welcome/logout')?>">salir..</a>
-	<?php endif;?>
+
+	<a class="restablece" href="<?=site_url('Welcome/logout')?>">salir</a>
 
 </div>
+

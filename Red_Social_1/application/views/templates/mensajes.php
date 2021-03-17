@@ -4,15 +4,15 @@
         <hr>
         <div class="row">
             <div class="col-md-6">
-                <p>Enviar nuevo mensaje...</p>
+                <p>Enviar nuevo mensaje</p>
                 <form action="Mensajes/mensaje" method="POST">
-                    <input type="hidden" name="usuarioMando" value="<?php print_r($this->session->session_id)?>">
+                    <input type="hidden" name="usuarioMando" value="<?php print_r($this->session->idusuario)?>">
                     <div class="form - group">
                         <label for="usuarios_idusuario">Para:</label>
                         <select name="usuarios_idusuario" id="usuarios_idusuario" class="form - control" required>
                             <option value="">Seleccionar un destinatario</option>
-                            <?php foreach ($consulta->result() as $allUsuarios): ?>
-                                <option value=" <?php echo $allUsuarios->idusuario ?>"><?php echo $allUsuarios->usuario ?></option>
+                            <?php foreach ($usuarios as $usuario): ?>
+                                <option value=" <?php echo $usuario->idusuario ?>"><?php echo $usuario->usuario ?></option>
                             <?php endforeach?>
                         </select>
                     </div>
@@ -27,18 +27,33 @@
                 <p>Mensajes recibidos</p>
                 <hr>
 
-                    <div class="container-contenido-comentarios">
-                        <img src="" alt="" class="image-border mr-2">
-                        <div class="contenido-comentario-usuario">
+                    <ul class="collapsible" data-collapsible='accordion'>
+                        <li>
+                            <div class="collapsible-header teal white-text">Mensajes Entrada</div>
+                            <div class="collapsible-body">
+                                <ul>
+                                    <?php
+foreach ($mensajesEntrada as $mensaje) {
+    echo 'De: ' . $mensaje->usuario . ';  Contenido: ' . $mensaje->contenido . '<hr>';
+}
+?>
+                                </ul>
+                            </div>
+                        </li>
+                        <li>
+                            <br>
+                            <div class="collapsible-header teal white-text">Mensajes salida</div>
+                            <div class="collapsible-body">
+                                <ul><?php
+foreach ($mensajesSalida as $mensaje) {
+    echo 'Contenido: ' . $mensaje->contenido . ';  Para: ' . $mensaje->usuario . '<hr>';
+}
+?>
+                                </ul>
+                            </div>
+                        </li>
 
-                            <a href=""><i class="far fa-trash-alt"></i></a>
-
-                            <a href="" class="big mr-2"></a>
-
-                            <p></p>
-
-                        </div>
-                    </div>
+                    </ul>
 
             </div>
         </div>

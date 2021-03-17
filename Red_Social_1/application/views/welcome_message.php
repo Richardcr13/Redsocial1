@@ -4,12 +4,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
 ?><!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="utf-8">
-	<title>Dragón Y & G</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title>Dragón Y & G</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
 
-	<style type="text/css">
-		::selection {
+    <style type="text/css">
+        ::selection {
     background-color: #EFF56D;
     color: white;
 }
@@ -61,48 +61,50 @@ a.restablece {
     padding: 0px 0px 0px 0px;
     color: #008000;
 }
-	</style>
+    </style>
 
 </head>
 <body>
 
 
 <div>
-	<h1>Dragón amarillo y verde</h1>
+    <h1>Dragón amarillo y verde</h1>
 
-	<div id="body">
+    <div id="body">
 
-		<p class="descripcion">Sitio creado para que puedas tener un mejor contacto con los
-		"UPIICSIANOS". Inicia sesión o registraste</p>
+        <p class="descripcion">Sitio creado para que puedas tener un mejor contacto con los
+        "UPIICSIANOS". Inicia sesión o registraste</p>
 
-	</div>
+    </div>
 
 </div>
 
 
 <div class="login-screen">
-  <div class="container container-login animated fadeIn">
-  	<h3 class="text-center">Iniciar sesión...</h3>
-			<form action="" method="POST">
-			  <div class="login-form">
-				<div class="form-group form-floating-label">
-					<form>
-					<input id="username" name="username" type="text" class="form-control input-border-bottom" required>
-					<label for="username" class="placeholder">Usuario</label>
-				</div>
-				<div class="form-group form-floating-label">
-					<input id="password" name="password" type="password" class="form-control input-border-bottom" required>
-					<label for="password" class="placeholder">Contraseña</label>
-					<div class="show-password">
-						<i class="flaticon-interface"></i>
-					</div>
-				</div>
-
-				<input  type="submit" value="Ingresar" class="btn btn-primary">
-				<p class="pregunta">¿Olvidaste tu contraseña?</p>
-				<a class="restablece" href="index.php/Pagina_inicio">Restablece la contraseña.</a>
-              </form>
-			</div>
+    <div class="container container-login animated fadeIn">
+        <h3 class="text-center">Iniciar sesión</h3>
+        <form action="" method="POST" id="sesion">
+            <div class="login-form">
+                <div class="form-group form-floating-label">
+                    <input  name="usuario" type="text" class="form-control input-border-bottom" required>
+                    <label for="usuario" class="placeholder">Usuario</label>
+                </div>
+                <div class="form-group form-floating-label">
+                    <input  name="contrasena" type="password" class="form-control input-border-bottom" required>
+                    <label for="contrasena" class="placeholder">Contraseña</label>
+                    <div class="show-password">
+                        <i class="flaticon-interface"></i>
+                    </div>
+                </div>
+                <input  type="submit" value="Ingresar" class="btn btn-primary">
+             <a class="restablece" href="index.php/Registrar">Registrar</a>
+             <p class="pregunta">¿Olvidaste tu contraseña?</p>
+             <a class="restablece" href="index.php/Actualizar">Restablece la contraseña</a>
+            </div>
+        </form>
+    </div>
 </div>
+
+
 </body>
 </html>

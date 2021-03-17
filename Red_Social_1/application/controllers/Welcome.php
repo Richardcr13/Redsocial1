@@ -21,16 +21,29 @@ class Welcome extends CI_Controller
      */
     public function index()
     {
-        if ($this->session->userdata('username')) {
-            redirect('Welcome');
-        }
+        $this->load->model('Usuario_model');
+        $this->load->library('form_validation');
 
-        if (isset($_POST['password'])) {
-            $this->load->model('usuario_model');
-            if ($this->usuario_model->login($_POST['username'], md5($_POST['password']))) {
+        $this->form_validation->set_rules('usuario', 'Usuario', 'required');
+        $this->form_validation->set_rules('contrasena', 'Contraseña', 'required');
 
-                $this->session->set_userdata('username', $_POST['username']);
-                redirect('Pagina_inicio');
+        if ($this->form_validation->run()) {
+            // true
+            $usuario    = $this->input->post('usuario');
+            $contrasena = $this->input->post('contrasena');
+
+            $check_user = $this->Usuario_model->login($usuario, $contrasena);
+
+            if ($check_user == true) {
+                $data = array(
+                    'is_loged_in' => true,
+                    'idusuario'   => $check_user->idusuario);
+                $this->session->set_userdata($data);
+                if (isset($this->session->idusuario)) {
+                    echo "Bienvenido";
+                    redirect('Pagina_inicio');
+                } else {echo "string";}
+
             } else {
                 echo "Datos incorrectos";
             }
@@ -40,7 +53,6 @@ class Welcome extends CI_Controller
         $this->load->view('welcome_message');
 
     }
-
     public function logout()
     {
         $this->session->sess_destroy();

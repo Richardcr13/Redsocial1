@@ -13,20 +13,38 @@ class Usuario_model extends CI_Model
 
     }
 
-    public function login($username, $password)
+    public function login($usuario, $contrasena)
     {
-        //$this->load->database();
-        $this->db->where('usuario', $username);
-        $this->db->where('contrasena', $password);
-        $q = $this->db->get('usuarios');
 
-        if ($q->num_rows() > 0) {
+        $this->db->where('usuario', $usuario);
+        //$this->db->where('contrasena', $contrasena);
 
-            return true;
+        $query = $this->db->get('usuarios');
 
+        $row = $query->row();
+        //return $row ? password_verify($contrasena, $row->contrasena) : false;
+        if ($row && password_verify($contrasena, $row->contrasena)) {
+
+            return $row;
         } else {
             return false;
         }
+
+    }
+
+    public function getUsuario(int $id_usuario)
+    {
+        return $this->db->select('*')->from('usuario')->where('idusuario', $id_usuario)->get()->result();
+    }
+
+    public function setUsuario(array $datos)
+    {
+        return $this->db->insert('usuarios', $datos);
+    }
+
+    public function updateUsuario()
+    {
+        return $this->db->update('usuarios', $datos);
     }
 
 }

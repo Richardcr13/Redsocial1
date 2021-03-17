@@ -4,35 +4,41 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Mensajeria extends CI_Model
 {
 
-    public function __construct()
+    public function getMensajesSalida(int $idusuario)
     {
+        return $this->db->select('*')->from('mensajes')->join('usuarios', 'idusuario = mensajes.usuarios_idusuario')->where('mensajes.usuarioMando', $idusuario)->get()->result();
+    }
+
+    public function getMensajesEntrada(int $idusuario)
+    {
+        return $this->db->select('*')->from('mensajes')->join('usuarios', 'idusuario = mensajes.usuarioMando')->where('mensajes.usuarios_idusuario', $idusuario)->get()->result();
+    }
+
+    public function setMensaje(array $datos)
+    {
+        return $this->db->insert('mensajes', $datos);
+    }
+
+    public function getUsuarios(int $idusuario)
+    {
+        $this->db->where('idusuario !=', $idusuario);
+        return $this->db->select('idusuario, usuario')->from('usuarios')->get()->result();
 
     }
 
-    public function enviarMensaje($datosMensaje)
+    public function deleteMensaje(int $idusuario, int $id_mensaje)
     {
-        $this->db->set($datosMensaje);
-        $this->db->insert('mensajes');
+        $this->db->where('usuario_mando', $idusuario);
+        $this->db->where('idmensaje', $id_mensaje);
+        return $this->db->delete('mensajes');
     }
 
-    public function getMensajes($id)
+    public function getMensaje(int $idusuario, int $idmensaje)
     {
-        $this->db->query('SELECT U.usuario , P.fotoPerfil , M.contenido , M.fechaMensaje , M.idmensaje FROM mensajes M
-        INNER JOIN usuarios U ON U.idusuario = M.usuarioMando
-        INNER JOIN perfil P ON P.idUsuario = M.usuarioMando
-         WHERE M.usuarios_idusuario = :id');
-        $this->db->bind(':id', $id);
-        return $this->db->registers();
+        $this->db->where('idmensaje', $idmensaje);
+        $this->db->where('usuario_mando', $idusuario);
+        $this->db->or_where('usuarios_idusuario', $idusuario);
+        return $this->db->select('*')->from('mensajes')->get()->result();
     }
 
-    public function eliminarMensaje($id)
-    {
-        $this->db->query('DELETE FROM mensajes WHERE idmensaje = :id');
-        $this->db->bind(':id', $id);
-        if ($this->db->execute()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 }

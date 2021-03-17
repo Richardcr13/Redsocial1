@@ -1,12 +1,8 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
 
-/**
- *
- */
-class Post extends CI_Model
+class Post2 extends CI_Model
 {
-
     public function getPost()
     {
         return $this->db->get('usuarios');
@@ -18,5 +14,4 @@ class Post extends CI_Model
 
         return $result->row();
     }
-    
 }

@@ -1,0 +1,14 @@
+body {
+    background-color: #FEF186;
+}
+p {
+    color: red;
+}
+.main-panel {
+    padding: 50px 10px 10px 90px;
+}
+.imagen {
+    position: absolute;
+    left: 700px;
+    top: 150px;
+}
